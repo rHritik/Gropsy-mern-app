@@ -22,3 +22,22 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# Compiled code
+*.class
+*.exe
+
+# Dependency directories
+node_modules/
+venv/
+
+# Sensitive configuration files
+.env
+config.ini
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

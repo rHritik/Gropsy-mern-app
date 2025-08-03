@@ -3,7 +3,8 @@ import { useContext} from "react";
 import { useParams } from "react-router-dom";
 import { categories   } from "../assets/assets";
 import ProductCard from "../Components/ProductCard";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../Context/AppContext";
+
 
 
 const ProductCategory = () => {
@@ -11,19 +12,22 @@ const ProductCategory = () => {
   const {category}= useParams();
   const searchCategory = categories.find(
     (item) => item.path.toLowerCase()
-    // ===category
+    ===category
   );
 
   const filteredProducts = products.filter((product) =>
-     product.category.toLowerCase()
-  // ===category
+     product.category?.toLowerCase()
+  ===category?.toLowerCase()
 
   );
+  console.log("URL category:", category);
+console.log("Product categories:", products.map(p => p.category));
+
   return (
     <div className="mt-16">
       {searchCategory && (
         <div className="flex flex-col items-end w-max">
-          <h1 className="text-3xl md:4xl font-medium">
+          <h1 className="text-3xl md:text-4xl font-medium">
             {searchCategory.text.toUpperCase()}
           </h1>
         </div>
